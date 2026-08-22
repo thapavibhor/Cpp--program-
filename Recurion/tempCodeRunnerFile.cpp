@@ -1,0 +1,1 @@
+   cout<<a.substr(0,a.length()-1)  
