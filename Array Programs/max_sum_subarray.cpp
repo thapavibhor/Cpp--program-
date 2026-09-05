@@ -17,7 +17,21 @@ int max1(int a[7],int w){
     return maxx;
 }
 
+// Sliding Window Technique : Big O = O(n) 
+int max2(int a[7],int w){
+    int current = 0;
+    for(int i=0;i<w;i++){current += a[i];} // find the sum of first window
+    int max2 = current;
+    for(int i=1;i<=7-w;i++){
+        current = current - a[i-1] + a[i+w-1];
+        if(current>max2){max2= current;}
+    } return max2;
+}
+
+
 int main(){
     int a[7] = {3,8,2,5,7,6,12}; 
     cout<<"Maximum sum subarry :"<<max1(a,3);
+    cout<<"Maximum sum subarry :"<<max2(a,5);
+return 0;
 }
